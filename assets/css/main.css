@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Inter:700|Inter:400');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+    :root {
+      --text: #292929;
+      --background: #f0f0f0;
+      --primary: #87b7ff;
+      --secondary: #a3d2bb;
+      --accent: #5cdaa2;
+    }
+    .dark {
+      --text: #d6d6d6;
+      --background: #0f0f0f;
+      --primary: #00317a;
+      --secondary: #2d5c46;
+      --accent: #25a26a;
+    }
+  }
+  
