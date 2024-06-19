@@ -9,7 +9,19 @@ export default {
     "./error.vue",
   ],
   theme: {
-    // extend: {},
+    extend: {
+      colors: {
+        'text': 'var(--text)',
+        'background': 'var(--background)',
+        'primary': 'var(--primary)',
+        'secondary': 'var(--secondary)',
+        'accent': 'var(--accent)',
+      },
+      fontWeight: {
+        normal: '400',
+        bold: '700',
+      },
+    },
     fontSize: {
       sm: '0.750rem',
       base: '1rem',
@@ -22,17 +34,6 @@ export default {
     fontFamily: {
       heading: 'Inter',
       body: 'Inter',
-    },
-    fontWeight: {
-      normal: '400',
-      bold: '700',
-    },
-    colors: {
-      'text': 'var(--text)',
-      'background': 'var(--background)',
-      'primary': 'var(--primary)',
-      'secondary': 'var(--secondary)',
-      'accent': 'var(--accent)',
     },
     
   },
