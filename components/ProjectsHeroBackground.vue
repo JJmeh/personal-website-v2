@@ -1,9 +1,8 @@
 <template>
-    <div class="w-full h-full relative overflow-hidden bg-gradient-to-bl from-[#a09af0] to-primary to-60% from-20%">
+    <div class="w-full h-full relative overflow-hidden bg-gradient-to-t from-[#4a40d5] to-[#4d89ff] to-60% from-20%">
         <div class="absolute rounded-full blob-1"></div>
         <div class="absolute rounded-full blob-2"></div>
         <div class="absolute rounded-full blob-3"></div>
-        <div class="absolute rounded-full blob-4"></div>
         <div class="absolute frosted w-full h-full"></div>
     </div>
 </template>
@@ -51,27 +50,15 @@
     animation-direction: alternate;
 }
 
-.blob-4{
-    /* background-color: #3ac8c4; */
-    left: 50%;
-    top: 50%;
-    aspect-ratio: 1;
-    width: 12rem;
-    animation-name: blob-4;
-    animation-duration: 60s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
 @keyframes blob-1 {
     0%   {
-        background-color: #262a92;
+        background-color: #1869e4;
         top: 70%;
         left: 30%;
         width: 15rem;
     }
     25%  {
-        background-color: #484fad;
+        background-color: #8d94fd;
         width: 25rem;
     }
     50%  {
@@ -82,23 +69,23 @@
     100% {
         top: 20%;
         left: -10%;
-        background-color: #514c91;
+        background-color: #726dbb;
         width: 20rem;
     }
 }
 @keyframes blob-2 {
     0%  {
-        background-color: #5273ff;
+        background-color: #760ef5;
         top: 4%;
         left: 90%;
         width: 10rem;
     }
     25%   {
-        background-color: #7f79e0;
+        background-color: #5b57b2;
         width: 20rem;
     }
     50%  {
-        background-color: #4e39b9;
+        background-color: #1c56eb;
         top: 20%;
         left: 34%;
         width: 10rem;
@@ -133,36 +120,4 @@
     }
 }
 
-@keyframes blob-4 {
-    0%  {
-        background-color: #511ad2;
-        top: 50%;
-        left: 50%;
-        width: 12rem;
-    }
-    25%  {
-        background-color: rgb(46, 103, 172);
-        top: 0%;
-        left: 100%;
-        width: 20rem;
-    }
-    50%  {
-        background-color: rgb(47, 53, 236);
-        top: 100%;
-        left: 100%;
-        width: 10rem;
-    }
-    75%  {
-        background-color: rgb(99, 46, 196);
-        top: 0%;
-        left: 0%;
-        width: 20rem;
-    }
-    100% {
-        background-color: rgb(93, 53, 167);
-        top: 100%;
-        left: 0%;
-        width: 12rem;
-    }
-}
 </style>

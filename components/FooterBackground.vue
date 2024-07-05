@@ -1,18 +1,16 @@
 <template>
-    <div class="w-full h-full relative overflow-hidden bg-gradient-to-bl from-[#a09af0] to-primary to-60% from-20%">
-        <div class="absolute rounded-full blob-1"></div>
-        <div class="absolute rounded-full blob-2"></div>
-        <div class="absolute rounded-full blob-3"></div>
-        <div class="absolute rounded-full blob-4"></div>
-        <div class="absolute frosted w-full h-full"></div>
+    <div class="w-full h-full relative overflow-hidden bg-primary">
+        <!-- <img src="/image/wavy.jpg" alt="" class="brightness-90"> -->
+        <!-- <img src="/image/purple3.jpg" alt="" class="brightness-90"> -->
+        <img src="/image/purple2.jpg" alt="" class="h-full w-full object-cover">
     </div>
 </template>
 
 <style scoped>
 .frosted{
-    background: rgba( 255, 255, 255, 0.25 );
-    backdrop-filter: blur( 30px );
-    -webkit-backdrop-filter: blur( 30px );
+    background: rgba( 255, 255, 255, 0.1 );
+    backdrop-filter: blur( 60px );
+    -webkit-backdrop-filter: blur( 60px );
     /* border: 1px solid rgba( 255, 255, 255, 0.18 ); */
 }
 

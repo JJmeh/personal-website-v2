@@ -1,3 +1,55 @@
+<script setup>
+definePageMeta({
+    title: 'Jeremiah Jason'
+})
+
+
+var projects = ref([
+    // {
+    //     id: 1,
+    //     image: '/image/sky.jpg',
+    //     name: 'Project Geniora',
+    //     tags: [
+    //         'Website',
+    //         'Landing Page'
+    //     ]
+    // },
+    // {
+    //     id: 2,
+    //     image: '/image/sky2.jpg',
+    //     name: 'Project Atone',
+    //     tags: [
+    //         'Website',
+    //         'Service'
+    //     ]
+    // },
+    // {
+    //     id: 3,
+    //     image: '/image/purple.jpg',
+    //     name: 'Project Dustklin',
+    //     tags: [
+    //         'Website',
+    //         'E-Commerce'
+    //     ]
+    // }
+])
+
+const job = ref({
+    name: '',
+    email: '',
+    detail: '',
+    services: '',
+    budget: null
+})
+
+function send_job(){
+    // console.log(job.value)
+    // TODO:
+    // do email send here someday
+}
+
+</script>
+
 <template>
     <div class="w-full">
         <!-- <h1>Homepage</h1> -->
@@ -16,10 +68,10 @@
             </div>
             <div class="w-full lg:w-1/4 h-1/2 sm:h-2/5 md:h-1/4 lg:h-full flex flex-col sm:flex-row lg:flex-col gap-3 sm:gap-5 lg:gap-3">
                 <HeroActionCard class="w-full sm:w-1/2 lg:w-full h-1/2 sm:h-full lg:h-3/5" title='Photo by <a href="https://unsplash.com/@ksushlapush?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Kseniya Lapteva</a> on <a href="https://unsplash.com/photos/a-watercolor-painting-of-a-purple-background-Dr8jO199ORY?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>' image="/image/purple.jpg" has_badge="Latest Project">
-                    <h2 class="font-heading me-4 text-3xl font-medium text-background leading-relaxed tracking-tight">See My Latest Project</h2>
+                    <h2 class="font-heading me-4 text-2xl sm:text-3xl font-medium text-background leading-relaxed tracking-tight">Coming Soon.</h2>
                 </HeroActionCard>
-                <HeroActionCard class="w-full sm:w-1/2 lg:w-full h-1/2 sm:h-full lg:h-2/5" color="bg-primary">
-                    <h2 class="font-heading text-2xl font-medium text-background leading-relaxed tracking-tight">Have A Project In Mind? Tell Me How I Can Help</h2>
+                <HeroActionCard to="/contact" class="w-full sm:w-1/2 lg:w-full h-1/2 sm:h-full lg:h-2/5" color="bg-primary">
+                    <h2 class="font-heading text-[1.65rem] sm:text-2xl font-medium text-background leading-relaxed tracking-tight">Have A Project In Mind? Tell Me How I Can Help</h2>
                 </HeroActionCard>
             </div>
         </div>
@@ -32,7 +84,7 @@
                 </span>
                 <h1 class="text-heading text-[1.5rem] sm:text-2xl md:text-3xl">Services I can provide based on my experiences and capabilites over the years</h1>
             </div>
-            <div class="w-full min-[970px]:w-full lg:w-1/2 grid grid-cols-1 min-[580px]:grid-cols-2 min-[970px]:grid-cols-4 lg:grid-cols-none gap-6 md:gap-4 items-center justify-center">
+            <div class="w-full min-[970px]:w-full lg:w-1/2 grid grid-cols-1 min-[580px]:grid-cols-2 min-[970px]:grid-cols-4 lg:grid-cols-none gap-3 md:gap-4 items-center justify-center">
                 <ServiceCard class="lg:row-start-1 lg:row-end-1 lg:col-start-1 lg:col-end-1 cursor-pointer" :status=1>
                     Web Development
                 </ServiceCard>
@@ -51,5 +103,105 @@
                 </ServiceCard>
             </div>
         </div>
+
+        <div class="mt-16 w-full flex flex-col">
+            <div class="flex flex-col min-[580px]:flex-row justify-between min-[580px]:items-center mb-6 min-[580px]:mb-10 gap-4 min-[580px]:gap-0">
+                <h2 class="font-heading text-[2rem] font-medium">Recent Projects</h2>
+                <nuxt-link to="/projects" class="font-bold font-heading text-base text-primary flex items-center group">
+                    <span class="group-hover:brightness-[0.8] transition-all">
+                        View All
+                    </span>
+                    <svg class="w-6 h-6 text-primary group-hover:rotate-0 transition-all ms-2 ease-in-out group-hover:translate-x-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5m14 0-4 4m4-4-4-4"/>
+                    </svg>
+                </nuxt-link>
+                <!-- <h3>View All -></h3> -->
+            </div>
+            <div class="w-full h-[10rem] flex text-center justify-center items-center" v-if="projects.length == 0">
+                <h1 class="text-4xl font-heading font-medium">Projects Coming Soon..</h1>
+            </div>
+            <div v-else class="flex gap-4 flex-col min-[970px]:flex-row lg:gap-6 h-[88rem] sm:h-[105rem] min-[970px]:h-[35rem]">
+                <ProjectsCard :image=data.image v-for="(data) in projects" :tags="data.tags" v-bind:key="data.id">{{ data.name }}</ProjectsCard>
+                <!-- <ProjectsCard image="/image/sky2.jpg"></ProjectsCard>
+                <ProjectsCard image="/image/purple.jpg"></ProjectsCard> -->
+            </div>
+
+            <div class="w-full h-min md:h-min rounded-[30px] mt-16 md:mt-24 lg:mt-28 p-8 md:p-12 bg-gradient-to-r from-secondary to-[#9b94ff] subscribe-gradient gap-0 md:gap-10">
+                <div class="max-w-6xl flex flex-col md:flex-row items-end md:items-start mx-auto">
+                    <div class="w-full md:w-1/2  text-left flex flex-col items-start h-40 justify-center">
+                        <h1 class="text-3xl font-heading leading-tight font-medium tracking-tight text-background">Get Notified</h1>
+                        <p class="text-xl font-body w-full md:w-3/4 mt-0 md:mt-2 text-background">Don't miss out from my new projects by being notified for it</p>
+                    </div>
+                    <div class="w-full md:w-1/2 flex flex-col items-end h-40 justify-center gap-4">
+                        <!-- <h1 class="text-3xl font-heading font-medium tracking-tight text-background hidden md:block">Subscribe</h1> -->
+                        <div class="relative font-heading w-full md:max-w-[30rem]">
+                            <input type="email" id="Subscribe" class="block w-full p-4 text-base text-text rounded-2xl bg-background" placeholder="Enter Your Email"/>
+                        </div>
+                        <button class="text-background bg-primary hover:brightness-75 font-medium rounded-2xl px-8 py-3 text-xl block w-full md:w-max transition-all">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full flex gap-6 mt-24 mb-24 flex-col lg:flex-row">
+            <div class="w-full lg:w-1/2 frosted p-7 rounded-[30px]">
+                <h1 class="font-heading font-semibold text-2xl lg:text-4xl text-primary tracking-tight">Work With Me</h1>
+                <p class="font-heading text-base font-medium me-8 lg:me-0">Have a job for me? Use this contact form to send me the details and let's start working!</p>
+                <form class="flex flex-col mt-8 gap-3" @submit.prevent="send_job()">
+                    <input type="text" name="name" v-model="job.name" placeholder="Name" class="py-5 px-6 rounded-xl bg-slate-200 placeholder-slate-500 border-transparent focus:border-transparent focus:ring-0 focus:ring-offset-0 ring-0">
+                    <input type="email" name="email" v-model="job.email" placeholder="Email" class="py-5 px-6 rounded-xl bg-slate-200 placeholder-slate-500 border-transparent focus:border-transparent focus:ring-0 focus:ring-offset-0 ring-0">
+                    
+                    <div class="w-full grid">
+                        <select v-model="job.services" name="services" class="w-full col-start-1 row-start-1 appearance-none py-5 px-6 rounded-xl bg-slate-200 placeholder-slate-500 border-transparent focus:border-transparent focus:ring-0 focus:ring-offset-0 ring-0">
+                            <option value="" disabled selected>Select Services</option>
+                            <option value="web">Web Development</option>
+                            <option value="api">API Development</option>
+                            <option value="uiux">UI/UX Design</option>
+                        </select>
+                        <svg class="w-6 h-6 right-3 relative justify-self-end self-center row-start-1 col-start-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 9-7 7-7-7"/>
+                        </svg>
+                    </div>
+
+                    <textarea name="message" cols="30" rows="5" v-model="job.detail" placeholder="The job description?" class="py-5 px-6 rounded-xl bg-slate-200 placeholder-slate-500 border-transparent focus:border-transparent focus:ring-0 focus:ring-offset-0 ring-0"></textarea>
+                    <input type="number" name="budget" v-model="job.budget" placeholder="Budget (optional, give currency in desc)" class="py-5 px-6 rounded-xl bg-slate-200 placeholder-slate-500 border-transparent focus:border-transparent focus:ring-0 focus:ring-offset-0 ring-0">
+                    <button type="submit" class="w-full text-center text-base font-heading font-semibold px-6 py-6 rounded-xl leading-3 transition-all bg-primary text-background hover:brightness-[.8] group ">
+                        Submit
+                    </button>
+                </form>
+            </div>
+            <div class="w-full lg:w-1/2">
+                <div class="rounded-[30px] w-full h-full overflow-hidden">
+                    <img src="/public/image/wavy.jpg" alt="" class="h-full w-full object-cover">
+                </div>
+            </div>
+        </div>
+
     </div>
 </template>
+
+<style scoped>
+.subscribe-gradient{
+    animation-name: gradient-move;
+    animation-duration: 70s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+@keyframes gradient-move {
+    0% {
+        --tw-gradient-from-position: 20%;
+        --tw-gradient-to-position: 90%
+    }
+    100% {
+        --tw-gradient-from-position: 30%;
+        --tw-gradient-to-position: 60%
+    }
+}
+
+.frosted{
+    background: rgba( 255, 255, 255, 0.6 );
+    backdrop-filter: blur( 120px );
+    -webkit-backdrop-filter: blur( 120px );
+    /* border: 1px solid rgba( 255, 255, 255, 0.18 ); */
+}
+</style>
