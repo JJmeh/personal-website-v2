@@ -7,7 +7,6 @@ const props = defineProps({
     }
 })
 
-console.log(route.path)
 function highlight(){
     if(route.path == '/') return false
 
