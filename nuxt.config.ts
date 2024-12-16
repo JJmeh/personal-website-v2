@@ -10,8 +10,18 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ["@nuxtjs/plausible"],
+  modules: [
+    "@nuxtjs/plausible",
+    '@nuxtjs/supabase',
+    '@nuxtjs/turnstile'
+  ],
   plausible: {
     apiHost: 'https://plausible.jeremiahjason.com'
   },
+  supabase:{
+    redirect: false
+  },
+  turnstile: {
+    siteKey: '0x4AAAAAAA2Rm_69x5EzQjXj'
+  }
 })

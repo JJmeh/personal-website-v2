@@ -56,14 +56,15 @@ useHead({
         <div class="px-6 sm:px-8 lg:px-12 w-full">
             <slot></slot>
         </div>
-
         <div class="my-6 flex flex-col px-6 sm:px-8 lg:px-12 w-full gap-3">
-            <div class="h-max lg:h-[25rem] flex gap-3 flex-col lg:flex-row">
-                <FooterActionCard class="w-full h-1/2 lg:h-full lg:w-2/5"></FooterActionCard>
-                <div class="w-full lg:w-3/5 h-[20rem] lg:h-full">
-                    <FooterBackground class="rounded-[30px]"></FooterBackground>
+            <UtilOnScrollAnimate>
+                <div class="h-max lg:h-[25rem] flex gap-3 flex-col lg:flex-row">
+                    <FooterActionCard class="w-full h-1/2 lg:h-full lg:w-2/5"></FooterActionCard>
+                    <div class="w-full lg:w-3/5 h-[20rem] lg:h-full">
+                        <FooterBackground class="rounded-[30px]"></FooterBackground>
+                    </div>
                 </div>
-            </div>
+            </UtilOnScrollAnimate>
             <div class="bg-text w-full h-min rounded-[30px] px-8 pb-8 pt-10">
                 <div class="flex justify-start gap-16 lg:gap-0 lg:justify-between mb-16 sm:mb-20 flex-col lg:flex-row">
                     <nuxt-link to="/">
@@ -109,6 +110,7 @@ useHead({
                 </div>
             </div>
         </div>
+
     </div> 
 </template>
 
